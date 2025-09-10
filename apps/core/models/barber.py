@@ -1,4 +1,5 @@
 from django.db import models
+from .barbers_point import BarbersPoint
 
 
 class Barber(models.Model):
@@ -14,6 +15,14 @@ class Barber(models.Model):
 
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
+
+    point = models.ForeignKey(
+        BarbersPoint,
+        on_delete=models.SET_NULL,
+        related_name="barbers",
+        null=True
+
+    )
 
     def __str__(self):
         return f"{self.surname} {self.name} {self.patronymic or ''}".strip()
