@@ -1,0 +1,11 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'footer.css' %}">
+
+<footer>
+    <p>&copy; 2025 Barber Booking</p>
+    <p>
+        <a href="/">Home</a> |
+        <a href="{% url 'bookings' %}">Booking</a> |
+        <a href="/about">About</a>
+    </p>
+</footer>

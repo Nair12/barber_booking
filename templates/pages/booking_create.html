@@ -1,0 +1,35 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% block title %}Booking {% endblock title %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static "booking_create.css" %}">
+    <div class="container">
+  <h1>New booking</h1>
+    <div>
+
+        <form action="{% url 'bookings' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="tel" name="phone" placeholder="Number" required>
+            <input type="datetime-local" name="date_time" placeholder="Date" required>
+            <select name="point" id="point_select" required>
+                {% for point in points %}
+                    <option value={{ point.id }}>{{ point.address }} </option>
+
+                {% endfor %}
+
+            </select>
+
+            <button type="submit">Make booking</button>
+
+        </form>
+
+
+    </div>
+    </div>
+
+
+
+
+{% endblock content %}

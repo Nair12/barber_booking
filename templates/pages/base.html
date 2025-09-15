@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'header.css' %}">
+    <link rel="icon" href="https://www.shutterstock.com/image-vector/barbershop-logo-vintage-classic-style-600w-1526776814.jpg">
+</head>
+{% include "core/includes/header.html" %}
+<body>
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+
+{% include "core/includes/footer.html" %}
+</body>
+</html>

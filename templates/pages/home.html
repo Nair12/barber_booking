@@ -1,0 +1,115 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static "home.css" %}">
+<!-- Hero Section -->
+
+    <div class="home-page">
+<section class="hero">
+    <div class="hero-text">
+        <h1>Classic Barber Shop</h1>
+        <p>Your style, your rules. Professional haircuts and beard grooming in a relaxing environment.</p>
+        <a href="#services" class="btn">Our Services</a>
+    </div>
+    <div class="hero-image" style="width: 1200px;height: 400px">
+        <img src="https://top-barbershop.com/media/2016/08/6yvceB8zbYg-700x466.jpg" alt="Barber Chair" style="max-width: 100%;max-height: 100%">
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about">
+    <h2>About Us</h2>
+    <div class="about-content">
+        <div class="about-image">
+            <img src="https://barberukraine.com.ua/wp-content/uploads/2024/02/photo_2023-11-11_18-09-45.jpg" alt="Barbershop Interior">
+        </div>
+        <div class="about-text">
+            <p>At Classic Barber Shop, we combine traditional barbering techniques with modern styles.
+               Our team of skilled barbers ensures every haircut, shave, and beard trim is perfect.
+               Relax, enjoy a coffee, and leave looking your best.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="services">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+        <div class="service-card">
+            <img src="https://www.moderngentlemanmagazine.com/wp-content/uploads/2024/04/Undercut-with-Textured-Top-Haircut-650x650.jpg" alt="Haircut">
+            <h3>Haircuts</h3>
+            <p>Classic and modern haircuts tailored to your style.</p>
+        </div>
+        <div class="service-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtdYwhcGVl4cSNUmgv6Rkf4AEvti4qzxjzXg&s" alt="Beard Trim">
+            <h3>Beard Trims</h3>
+            <p>Precision beard grooming and shaping.</p>
+        </div>
+        <div class="service-card">
+            <img src="https://media.istockphoto.com/id/640276472/photo/skillful-hairdresser-using-blade-for-shaving-beard.jpg?s=612x612&w=0&k=20&c=ZvU0dU02444qcrErRk-noiD1XaUph2GoUinDK2NUGRY=" alt="Shaves">
+            <h3>Shaves</h3>
+            <p>Hot towel and traditional shaves for a smooth finish.</p>
+        </div>
+        <div class="service-card">
+            <img src="https://img.freepik.com/free-photo/hairdresser-barber-shop-styling-hair-client_1303-20979.jpg" alt="Styling">
+            <h3>Styling</h3>
+            <p>Hair styling for any occasion or event.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Team Section -->
+<section id="team" class="team">
+    <h2>Meet Our Team</h2>
+    <div class="team-members">
+        <div class="member">
+            <img src="https://i.pinimg.com/564x/9c/56/53/9c565341c12c98376a09398650498ffc.jpg" alt="John Doe">
+            <h3>John Doe</h3>
+            <p>Master Barber</p>
+        </div>
+        <div class="member">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU83DBIcCzKG5l0-ofKIe1RD1ylcLDynaFeQmk6ISlb1ct5Fkwf5PMsrIVDz-6EvNeZjE&usqp=CAU" alt="Mike Smith">
+            <h3>Mike Smith</h3>
+            <p>Beard Specialist</p>
+        </div>
+        <div class="member">
+            <img src="https://avatars.mds.yandex.net/get-shedevrum/12363575/79c144a1b6e511eeaf8aced9e91a1749/orig" alt="David Lee">
+            <h3>David Lee</h3>
+            <p>Hair Stylist</p>
+        </div>
+    </div>
+</section>
+
+<!-- Reviews Section -->
+<section id="reviews" class="reviews">
+    <h2>Client Reviews</h2>
+    <div class="reviews-grid">
+        <div class="review">
+            <p>"The best barber experience ever! Friendly staff and perfect haircuts."</p>
+            <span>- Alex P.</span>
+        </div>
+        <div class="review">
+            <p>"Professional, clean, and relaxing. Highly recommended."</p>
+            <span>- Sarah L.</span>
+        </div>
+        <div class="review">
+            <p>"They know exactly how to style your beard and hair. Love it!"</p>
+            <span>- James K.</span>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <div class="contact-info">
+        <p>Phone: <a href="tel:+123456789">+1 234 567 89</a></p>
+        <p>Address: 123 Main Street, Your City</p>
+        <p>Email: info@classicbarbershop.com</p>
+    </div>
+</section>
+    </div>
+
+{% endblock %}

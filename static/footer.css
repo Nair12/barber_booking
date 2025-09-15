@@ -1,0 +1,19 @@
+footer {
+    margin-top: 40px;
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #6b7280; /* серый */
+    font-family: "Segoe UI", sans-serif;
+}
+
+footer a {
+    color: #3b82f6;
+    text-decoration: none;
+    margin: 0 8px;
+    transition: color 0.2s ease;
+}
+
+footer a:hover {
+    color: #2563eb;
+}
