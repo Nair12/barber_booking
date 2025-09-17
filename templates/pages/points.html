@@ -1,0 +1,19 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% block title %}Barbers Points{% endblock title %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'points.css' %}">
+
+<h1 class="page-title">Our points</h1>
+<div class="points-grid">
+    {% for point in points %}
+        <div class="point-card" onclick="window.location.href='{% url "point-details" point.id %}'">
+            <h2>{{ point.address }}</h2>
+            <p>Phone:{{ point.phone_number }}</p>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

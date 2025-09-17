@@ -3,12 +3,13 @@
 {% block title %}Booking {% endblock title %}
 
 {% block content %}
-    <link rel="stylesheet" href="{% static "booking_create.css" %}">
+    <link rel="stylesheet" href="{% static "form.css" %}">
 
     <div class="container">
     <h1>Check your booking</h1>
 
-        <form action="number_check" method="post">
+        <form action="{% url "number_check" %}" method="post">
+             {% csrf_token %}
 
             <input type="tel" placeholder="Phone">
 

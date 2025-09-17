@@ -5,7 +5,7 @@
     margin: 0;
 }
 
-/* Hero */
+
 .home-page .hero {
     display: flex;
     flex-wrap: wrap;
@@ -63,7 +63,7 @@
     text-align: left;
 }
 
-/* Services */
+
 .home-page .services-grid {
     display: flex;
     flex-wrap: wrap;
@@ -95,7 +95,7 @@
     font-size: 0.9rem;
 }
 
-/* Team */
+
 .home-page .team-members {
     display: flex;
     flex-wrap: wrap;
@@ -139,13 +139,13 @@
     font-weight: 600;
 }
 
-/* Contact */
+
 .home-page .contact-info p {
     font-size: 1.1rem;
     margin: 5px 0;
 }
 
-/* General Sections */
+
 .home-page section {
     max-width: 1200px;
     margin: 40px auto;

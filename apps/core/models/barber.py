@@ -11,7 +11,7 @@ class Barber(models.Model):
     exp = models.IntegerField()
     phone = models.CharField(max_length=20)
     salary = models.DecimalField(max_digits=10, decimal_places=2)
-    pict_url = models.URLField()
+    pict_url = models.ImageField(upload_to="barbers")
 
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)

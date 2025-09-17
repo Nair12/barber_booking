@@ -1,0 +1,32 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% block title %}{{point.address}}{% endblock title %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static "point-details.css" %}">
+
+    <div class="container">
+    <h1>{{ point.address }}</h1>
+
+    <div class="tel">
+        <p>{{point.phone_number}}</p>
+    </div>
+
+    <div class="image-container">
+
+        {% for image in images %}
+            <div class="image-item">
+            <img src="{{ image.image.url }}" alt="{{ image.created_at }}">
+            </div>
+
+        {% endfor %}
+
+
+    </div>
+
+
+    </div>
+
+
+
+{% endblock content %}

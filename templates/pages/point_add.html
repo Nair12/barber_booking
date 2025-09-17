@@ -1,0 +1,19 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% block title %}Booking {% endblock title %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static "form.css" %}">
+    <div class="container">
+     <h1>New point</h1>
+    <form action="{% url 'point_add' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" name="address" placeholder="Address" required>
+            <input type="tel" name="phone" placeholder="Phone" required>
+            <input type="file" name="images" placeholder="Picture" required multiple>
+            <button type="submit">Create barber</button>
+    </form>
+    </div>
+
+
+{% endblock content %}
