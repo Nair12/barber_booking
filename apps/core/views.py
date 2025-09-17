@@ -27,8 +27,9 @@ def number_check_view(request):
     if request.method == "POST":
         number = request.POST.get("number")
         booking = Booking.objects.filter(user_phone=number).first()
+        print(booking)
         if booking is not None:
-            return redirect(f"/booking/{booking.id}/")
+            return redirect("booking-details",pk=booking.id)
         else:
             return redirect("/")
 
@@ -148,4 +149,5 @@ class BookingDetailsView(View):
         context = {
             "booking": booking,
         }
+        print(booking.date_time)
         return render(request,"pages/booking_details.html",context=context)

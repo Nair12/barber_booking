@@ -11,7 +11,7 @@
         <form action="{% url "number_check" %}" method="post">
              {% csrf_token %}
 
-            <input type="tel" placeholder="Phone">
+            <input type="tel" placeholder="Phone" name="number">
 
             <button type="submit">Check booking</button>
 

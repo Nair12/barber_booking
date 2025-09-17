@@ -3,5 +3,35 @@
 {% block title %}Booking {% endblock title %}
 
 {% block content %}
+    <link rel="stylesheet" href="{% static "booking-details.css" %}">
+    <div class="container">
+    <div class="booking-title">
+    <h1>Your booking {{ booking.id}}</h1>
+    </div>
+    <div class="details booking-info">
+        <p>{{ booking.name }}</p>
+        <p>{{ booking.date_time }}</p>
+        <p>{{ booking.user_phone }}</p>
+    </div>
+    <div class="details point-info">
+        <p>{{ booking.point.address }}</p>
+        <p>{{ booking.point.phone_number }}</p>
+
+    </div>
+    <div class="details barber-info">
+        <h2>Your barber: {{ booking.barber.name }}</h2>
+
+        <img src="{{ booking.barber.pict_url.url }}" alt="{{ booking.barber.patronymic }}">
+
+    </div>
+    <div class="booking-control">
+        <button class="btn-cancel">Cancel booking</button>
+    </div>
+
+
+
+    </div>
+
+
 
 {% endblock content %}
