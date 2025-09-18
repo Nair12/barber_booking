@@ -4,7 +4,7 @@
 
 {% block content %}
     <link rel="stylesheet" href="{% static "home.css" %}">
-<!-- Hero Section -->
+
 
     <div class="home-page">
 <section class="hero">
@@ -32,10 +32,18 @@
         </div>
     </div>
 </section>
+        
 
-<!-- Services Section -->
 <section id="services" class="services">
     <h2>Our Services</h2>
+    
+    <div class="video-container">
+
+        <video src="{% static "videos/present-video.mp4" %}" type="video/mp4" controls width="800" height="500" autoplay style="margin-bottom: 40px"></video>
+        
+    </div>
+    
+    
     <div class="services-grid">
         <div class="service-card">
             <img src="https://www.moderngentlemanmagazine.com/wp-content/uploads/2024/04/Undercut-with-Textured-Top-Haircut-650x650.jpg" alt="Haircut">
@@ -60,7 +68,7 @@
     </div>
 </section>
 
-<!-- Team Section -->
+
 <section id="team" class="team">
     <h2>Meet Our Team</h2>
     <div class="team-members">
@@ -82,7 +90,7 @@
     </div>
 </section>
 
-<!-- Reviews Section -->
+
 <section id="reviews" class="reviews">
     <h2>Client Reviews</h2>
     <div class="reviews-grid">
