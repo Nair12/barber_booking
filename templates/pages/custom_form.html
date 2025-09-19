@@ -1,0 +1,23 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% block title %}Booking {% endblock title %}
+
+
+{% block content %}
+
+    <form method="post" enctype="multipart/form-data" id="booking-form" class="form-center">
+    <table>
+        {% csrf_token %}
+        {{ client_form.non_field_errors.as_table }}
+        {{ booking_form_as.table}}
+        <th></th>
+        <td>
+            <button type="submit" name="submit_booking">Make booking</button>
+        </td>
+    </table>
+
+
+    </form>
+
+
+{% endblock content %}

@@ -9,11 +9,6 @@ from django.shortcuts import get_object_or_404
 from apps.core.models import BarbersPoint, Barber, Booking, PointImages
 
 
-def about_view(request):
-    return render(request, 'about.html')
-
-
-
 
 def base_view(request):
     return render(request, "pages/base.html")
