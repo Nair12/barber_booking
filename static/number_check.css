@@ -1,0 +1,23 @@
+.error-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 24px;
+    margin: 20px auto;
+    max-width: 600px;
+
+    background-color: #ffe5e5;
+    color: #b00020;
+    border: 1px solid #ff9b9b;
+    border-radius: 8px;
+
+    font-size: 1rem;
+    font-weight: 500;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}

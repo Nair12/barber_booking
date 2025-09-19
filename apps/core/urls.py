@@ -4,7 +4,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 from apps.core.models import Booking
-from apps.core.views import about_view, base_view, bookings, number_check_view, home_view, points_view, \
+from apps.core.views import base_view, bookings, number_check_view, home_view, points_view, \
     barber_create_view, booking_success_view, PointDetailsView, point_add_view, BookingDetailsView
 from django.conf import settings
 from django.conf.urls.static import static

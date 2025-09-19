@@ -26,7 +26,10 @@ def number_check_view(request):
         if booking is not None:
             return redirect("booking-details",pk=booking.id)
         else:
-            return redirect("/")
+            context = {
+                "error_message":"Your booking does not exist,please check phone number",
+            }
+            return render(request, "pages/number_check.html", context)
 
 
 
