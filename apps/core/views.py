@@ -86,9 +86,9 @@ def bookings(request):
         point = BarbersPoint.objects.get(id=point_id)
 
 
-        Booking.objects.create(name=name, user_phone=phone, date_time=date_time,point=point,barber=barber)
+        new_object = Booking.objects.create(name=name, user_phone=phone, date_time=date_time,point=point,barber=barber)
 
-        return redirect("booking-success")
+        return redirect("booking-success",pk=new_object.id)
 
 
 
@@ -100,8 +100,12 @@ def bookings(request):
 
 
 
-def booking_success_view(request):
-    return render(request, "pages/booking_success.html")
+def booking_success_view(request,pk):
+    context={
+        "Id":pk
+    }
+
+    return render(request, "pages/booking_success.html",context=context)
 
 
 def point_add_view(request):

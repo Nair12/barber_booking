@@ -17,7 +17,7 @@ urlpatterns = [
     path('points/', points_view),
 
     path('barber-create/', barber_create_view,name="barber_create"),
-    path('booking-success/', booking_success_view,name="booking-success"),
+    path('booking-success/<int:pk>', booking_success_view,name="booking-success"),
 
     path('point-details/<int:pk>',PointDetailsView.as_view(), name="point-details"),
 
