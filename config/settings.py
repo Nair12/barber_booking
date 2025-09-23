@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.core',
+    'apps.users',
     'django_cleanup.apps.CleanupConfig',
 ]
 
@@ -96,6 +97,41 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+
+#TODO LOGGING
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+        },
+        "file": {
+            "class": "logging.FileHandler",
+            "filename": "myapp.log",
+            "level": "INFO",
+            "formatter": "verbose",
+        },
+    },
+    "formatters": {
+        "verbose": {
+            "format": "{asctime} {levelname} {name} {message}",
+            "style": "{",
+        },
+    },
+    "loggers": {
+        "apps.core.tasks": {
+            "handlers": ["console", "file"],
+            "level": "INFO",
+            "propagate": False,
+        },
+    },
+}
+
+
+
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
