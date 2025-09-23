@@ -10,4 +10,6 @@ class CustomUser(AbstractUser):
     )
     role = models.CharField(max_length=20, choices=ROLE_CHOICES,default='guest')
     photo = models.ImageField(upload_to='user_photos', null=True, blank=True)
+    number = models.CharField(max_length=30, null=True, blank=True)
+
 

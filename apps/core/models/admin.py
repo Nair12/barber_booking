@@ -1,7 +1,11 @@
+from django.conf import settings
+from django.contrib.auth.models import User
 from django.db import models
 
 
 class Admin(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,related_name='admin_profile')
+
     id = models.AutoField(primary_key=True)
     surname = models.CharField(max_length=50)
     name = models.CharField(max_length=50)

@@ -1,8 +1,13 @@
 from django.db import models
+
+from config import settings
 from .barbers_point import BarbersPoint
 
 
 class Barber(models.Model):
+
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
     id = models.BigAutoField(primary_key=True)
     surname = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
