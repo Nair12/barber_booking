@@ -1,12 +1,17 @@
 from django.db import models
+
+from config import settings
 from .barbers_point import BarbersPoint
 
 
 class Barber(models.Model):
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="barber_profile",
+        null=True,
+    )
     id = models.BigAutoField(primary_key=True)
-    surname = models.CharField(max_length=100)
-    name = models.CharField(max_length=100)
-    patronymic = models.CharField(max_length=100, blank=True, null=True)
 
     exp = models.IntegerField()
     phone = models.CharField(max_length=20)
@@ -24,5 +29,3 @@ class Barber(models.Model):
 
     )
 
-    def __str__(self):
-        return f"{self.surname} {self.name} {self.patronymic or ''}".strip()

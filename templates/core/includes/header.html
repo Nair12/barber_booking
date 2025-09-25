@@ -9,6 +9,10 @@
             <li><a href="/points/">Our points</a></li>
             <li><a href="{% url 'bookings' %}">Booking</a></li>
             <li><a href="/number-check/">My booking</a></li>
+            {% if user.is_authenticated %}
+            	
+            {% endif %} 
+            <li><a href="{% url 'users:navigator' %}"> {{ user.get_full_name}}</a></li>
         </ul>
     </nav>
 

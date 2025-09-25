@@ -1,0 +1,45 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+    <link rel="stylesheet" href="{% static "barber-dashboard.css" %}">
+
+<div class="profile-container">
+
+
+    <div class="barber-card">
+        <img src="{{ barber.pict_url.url }}" alt="{{ barber }}" class="barber-photo">
+        <div class="barber-info">
+            <h2>{{ barber.user.get_full_name|default:barber.user.email }}</h2>
+            <p><b>Phone:</b> {{ barber.phone }}</p>
+            <p><b>Your point:</b> {{ barber.point }}</p>
+            <span class="date">Work from {{ barber.created_at }}</span>
+            <form action="{% url 'users:logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
+
+        </div>
+    </div>
+    <div class="bookings">
+        <h3>Bookings:</h3>
+        {% if bookings %}
+            {% for booking in bookings %}
+                <div class="booking-card">
+                    <div class="booking-date">{{ booking.date_time}}</div>
+                    <div class="booking-info">
+                        <p><b>Client:</b> {{ booking.name }}</p>
+                        <p><b>Phone:</b> {{ booking.user_phone }}</p>
+
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="empty">No bookings already.</p>
+        {% endif %}
+    </div>
+
+</div>
+{% endblock %}
+
+

@@ -21,7 +21,7 @@ class Booking(models.Model):
     barber = models.ForeignKey(
         Barber,
         on_delete=models.CASCADE,
-        related_name="barber"
+        related_name="bookings"
     )
 
 

@@ -1,9 +1,15 @@
-{% extends "base.html" %}
+{% extends "pages/base.html" %}
 {% load static %}
-{% block title %}Login{% endblock %}
-{% block content %}
-    <link rel="stylesheet" href="{% static "form.css" %}">
-     <h3>You're logged out</h3>
-    <a href="{% url '/' %}">Home</a>
+{% block title %}Logged out{% endblock %}
 
+{% block content %}
+<link rel="stylesheet" href="{% static 'logout.css' %}">
+
+<div class="logout-container">
+    <div class="logout-card">
+        <h1 class="logout-title">You have been logged out</h1>
+        <p class="logout-text">Thanks for visiting! You can log in again anytime.</p>
+        <a href="{% url 'users:login' %}" class="logout-btn">Go to Login</a>
+    </div>
+</div>
 {% endblock %}

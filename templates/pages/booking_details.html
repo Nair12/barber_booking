@@ -19,7 +19,7 @@
 
     </div>
     <div class="details barber-info">
-        <h2>Your barber: {{ booking.barber.name }}</h2>
+        <h2>Your barber: {{ booking.barber.user.first_name }}</h2>
 
         <img src="{{ booking.barber.pict_url.url }}" alt="{{ booking.barber.patronymic }}">
 

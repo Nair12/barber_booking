@@ -1,0 +1,72 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'admin-dashboard.css' %}">
+
+<div class="dashboard">
+
+
+    <h1>Barber Booking Dashboard</h1>
+
+
+    <div class="actions">
+        <a href="{% url 'users:barber_create' %}" class="btn">➕ Add Barber</a>
+        <a href="{% url 'users:admin_create' %}" class="btn">➕ Add Admin</a>
+        <a href="{% url 'point_add' %}" class="btn">➕ Add Point</a>
+        <a href="{% url 'users:user_create'%}" class="btn">➕ Add User</a>
+        <form method="post" action="{% url 'users:logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-logout">🚪 Logout</button>
+        </form>
+    </div>
+
+
+    <div class="section">
+        <h2>All Barbers</h2>
+        <div class="card-container">
+            {% for barber in barbers %}
+            <div class="card">
+                <img src="{{ barber.pict_url.url }}" alt="{{ barber }}" class="avatar">
+                <h3>{{ barber.user.get_full_name}}</h3>
+                <p><b>Phone:</b> {{ barber.phone }}</p>
+                <p><b>Point:</b> {{ barber.point }}</p>
+                <p><b>Exp:</b> {{ barber.exp }} years</p>
+            </div>
+            {% empty %}
+            <p>No barbers found.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <div class="section">
+        <h2>All Admins</h2>
+        <div class="card-container">
+            {% for admin in admins %}
+            <div class="card">
+                <h3>{{ admin.user.get_full_name}}</h3>
+                <p><b>Email:</b> {{ admin.user.email }}</p>
+            </div>
+            {% empty %}
+            <p>No admins found.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <div class="section">
+        <h2>All Points</h2>
+        <div class="card-container">
+            {% for point in points %}
+            <div class="card">
+                <p><b>Address:</b> {{ point.address }}</p>
+            </div>
+            {% empty %}
+            <p>No points found.</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

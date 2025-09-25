@@ -1,5 +1,7 @@
 from multiprocessing.connection import Client
+from random import random,choice
 
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views import View
@@ -48,30 +50,6 @@ def points_view(request):
     return render(request,"pages/points.html",context=context)
 
 
-def barber_create_view(request):
-    if request.method == "POST":
-        name = request.POST["name"]
-        phone = request.POST["phone"]
-        exp = request.POST["exp"]
-        surname = request.POST["surname"]
-        patronymic = request.POST["patronymic"]
-        salary = request.POST["salary"]
-        picture = request.FILES["picture"]
-        point_id = request.POST["point"]
-        new_object = Barber.objects.create(name=name, phone=phone, exp=exp,
-                              surname=surname, salary=salary,
-                              patronymic=patronymic,pict_url=picture,point_id=point_id)
-        print(new_object)
-        return redirect("/")
-
-    context = {
-        "points": BarbersPoint.objects.all(),
-    }
-    print("Context:".format(context))
-
-    return render(request,"pages/barber_create.html",context=context)
-
-
 
 @require_http_methods(["GET", "POST"])
 def bookings(request):
@@ -80,10 +58,10 @@ def bookings(request):
         phone = request.POST.get("phone")
         date_time = request.POST.get("date_time")
         point_id = request.POST.get("point")
-        barber_id = 1
 
-        barber = Barber.objects.get(id=barber_id)
         point = BarbersPoint.objects.get(id=point_id)
+        barbers = list(Barber.objects.filter(point=point).all())
+        barber = choice(barbers)
 
 
         new_object = Booking.objects.create(name=name, user_phone=phone, date_time=date_time,point=point,barber=barber)
@@ -92,7 +70,7 @@ def bookings(request):
 
 
 
-    #GET
+
     context= {
     "points": BarbersPoint.objects.all(),
     }
@@ -108,6 +86,7 @@ def booking_success_view(request,pk):
     return render(request, "pages/booking_success.html",context=context)
 
 
+@login_required(login_url='users:login')
 def point_add_view(request):
     if request.method == "POST":
         address = request.POST["address"]
