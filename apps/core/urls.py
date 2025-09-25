@@ -10,11 +10,11 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', home_view),
+    path('', home_view ,name='home'),
     path('booking/', bookings,name="bookings"),
     path('number-check/', number_check_view,name="number_check"),
 
-    path('points/', points_view),
+    path('points/', points_view,name="points"),
 
     path('booking-success/<int:pk>', booking_success_view,name="booking-success"),
 
